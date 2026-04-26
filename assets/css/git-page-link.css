@@ -39,10 +39,7 @@
   box-shadow: 0 0 0 0.1rem rgba(88, 110, 147, 0.2);
 }
 
-/* Plain variant — inherits all link colour and decoration from the theme */
-.gpl-link--plain {
-  text-decoration: inherit;
-}
+/* Plain variant — no overrides; colour and decoration come entirely from the theme */
 
 .gpl-icon {
   width: 1em;
