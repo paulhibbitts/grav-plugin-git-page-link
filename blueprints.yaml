@@ -38,6 +38,14 @@ form:
       default: ""
       placeholder: "e.g. Edit this page on GitHub"
 
+    link_target:
+      type: select
+      label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_TARGET
+      default: page
+      options:
+        page: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_TARGET_PAGE
+        repo: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_TARGET_REPO
+
     link_position:
       type: select
       label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_POSITION

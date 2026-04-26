@@ -3,6 +3,9 @@ en:
     LINK_TEXT: "Edit this Page"
     ADMIN:
       PLUGIN_STATUS: "Plugin Status"
+      LINK_TARGET: "Link Target"
+      LINK_TARGET_PAGE: "View/edit page in Git repository"
+      LINK_TARGET_REPO: "View Git repository"
       LINK_POSITION: "Link Position"
       LINK_POSITION_TOP: "Top of content"
       LINK_POSITION_BOTTOM: "Bottom of content"
@@ -31,6 +34,9 @@ fr:
     LINK_TEXT: "Modifier cette page"
     ADMIN:
       PLUGIN_STATUS: "État du plugin"
+      LINK_TARGET: "Cible du lien"
+      LINK_TARGET_PAGE: "Afficher/modifier la page dans le dépôt Git"
+      LINK_TARGET_REPO: "Afficher le dépôt Git"
       LINK_POSITION: "Position du lien"
       LINK_POSITION_TOP: "En haut du contenu"
       LINK_POSITION_BOTTOM: "En bas du contenu"

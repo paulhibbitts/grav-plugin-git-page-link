@@ -57,12 +57,11 @@ class GitPageLinkPlugin extends Plugin
             return;
         }
 
-        $url = $this->buildGitUrl($page);
+        $config = $this->mergeConfig($page);
+        $url    = $this->buildGitUrl($page, $config);
         if (!$url) {
             return;
         }
-
-        $config   = $this->mergeConfig($page);
         $linkHtml = $this->renderLink($url, $config);
         $position = $config->get('link_position', 'bottom');
         $content  = $page->getRawContent();
@@ -115,7 +114,7 @@ class GitPageLinkPlugin extends Plugin
      * Build the remote Git URL from the Git Sync plugin config.
      * Returns null silently if Git Sync is not configured.
      */
-    private function buildGitUrl($page): ?string
+    private function buildGitUrl($page, $config): ?string
     {
         $gitSyncConfig = $this->grav['config']->get('plugins.git-sync');
 
@@ -128,6 +127,12 @@ class GitPageLinkPlugin extends Plugin
         $remote = preg_replace('/\.git$/', '', $remote);
         // Strip any embedded credentials (e.g. https://token@github.com/...).
         $remote = preg_replace('#(https?://)([^@]+@)#', '$1', $remote);
+
+        // 'repo' target — link to the repository root, no file path needed.
+        if ($config->get('link_target', 'page') === 'repo') {
+            return $remote;
+        }
+
         $branch = (string) ($gitSyncConfig['branch'] ?? 'main');
 
         // Git Sync always syncs from user/ to the repo root.
