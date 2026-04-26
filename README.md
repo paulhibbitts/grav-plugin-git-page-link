@@ -51,3 +51,5 @@ bin/gpm install git-edit-page-link
 ## Credits
 
 Developed by [HibbittsDesign.org](https://hibbittsdesign.org) with the assistance of [Claude Code](https://claude.ai/claude-code).
+
+Special thanks to [tucho235](https://github.com/tucho235) for the [Copy as Markdown Button](https://github.com/tucho235/grav-plugin-copy-as-markdown-button) plugin, which served as an example of injecting content at the top or bottom of Grav pages.
