@@ -184,10 +184,11 @@ class GitPageLinkPlugin extends Plugin
 
         $eUrl      = htmlspecialchars($url, ENT_QUOTES | ENT_HTML5, 'UTF-8');
         $eLinkText = htmlspecialchars($linkText, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-        $titleAttr = $linkTitle !== '' ? ' title="' . htmlspecialchars($linkTitle, ENT_QUOTES | ENT_HTML5, 'UTF-8') . '"' : '';
+        $titleAttr  = $linkTitle !== '' ? ' title="' . htmlspecialchars($linkTitle, ENT_QUOTES | ENT_HTML5, 'UTF-8') . '"' : '';
+        $targetAttr = $config->get('link_new_tab', false) ? ' target="_blank" rel="noopener noreferrer"' : '';
 
         return '<div class="gpl-wrapper">'
-             . '<a href="' . $eUrl . '" class="gpl-link gpl-link--' . $linkStyle . '"' . $titleAttr . ' target="_blank" rel="noopener noreferrer">'
+             . '<a href="' . $eUrl . '" class="gpl-link gpl-link--' . $linkStyle . '"' . $titleAttr . $targetAttr . '>'
              . $icon
              . '<span class="gpl-link-text">' . $eLinkText . '</span>'
              . '</a>'

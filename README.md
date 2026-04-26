@@ -9,7 +9,7 @@ Adds a link to Grav pages that connects visitors directly to the configured Git 
 - Link label is fully customisable — use "Edit this Page", "View Source", "Open on GitHub", or any text
 - Styled as a plain text link (default) or a button
 - Displays a built-in pencil, document, Git branch, or folder SVG icon, a custom SVG, or no icon
-- Opens the repository URL in a new tab
+- Optionally opens in a new tab, or defers to the browser default or the External Links plugin
 - Silently omits the link if Git Sync is not installed or has no remote configured
 - Restricts display to specific page templates; leave the Page Types setting empty to show on all pages
 
@@ -44,6 +44,7 @@ bin/gpm install git-page-link
 | Link Label | Edit this Page | Text displayed on the link |
 | Link Tooltip | _(empty)_ | Tooltip shown on hover (`title` attribute); leave empty for no tooltip |
 | Link Position | Bottom | Where the link appears: Top, Bottom, or Both |
+| Open Link in New Tab | Enabled | Open the link in a new browser tab; disable to use default browser behaviour or defer to the External Links plugin |
 | Link Style | Plain text link | Display as a plain text link or a button |
 | Dark Mode Support | Disabled | Load dark mode CSS for the button style; enable only if your theme supports dark mode |
 | Link Icon | Pencil | Icon shown beside the link label: Pencil, Document, Git branch, Folder, Custom SVG, or None |
