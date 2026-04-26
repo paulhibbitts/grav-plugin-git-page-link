@@ -1,0 +1,21 @@
+/* ============================================================
+   Git Edit Page Link — dark mode styles (loaded only when
+   the dark_mode plugin option is enabled)
+   ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+  .gel-link--button {
+    color: #cbd5e1;
+    background: #1e2533;
+    border-color: #3d4a5c;
+  }
+
+  .gel-link--button:hover {
+    background: #263044;
+    border-color: #556070;
+  }
+
+  .gel-link--button:focus-visible {
+    box-shadow: 0 0 0 0.1rem rgba(148, 163, 184, 0.25);
+  }
+}

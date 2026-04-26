@@ -1,0 +1,92 @@
+name: Git Edit Page Link
+version: 0.9.0
+description: Adds an "Edit this Page" link to pages, pointing to the source file in the configured Git Sync repository
+icon: pencil
+author:
+  name: HibbittsDesign.org
+  email: paul@hibbittsdesign.org
+  url: https://hibbittsdesign.org
+homepage: https://github.com/paulhibbitts/grav-plugin-git-edit-page-link
+keywords: git, edit, github, gitlab, gitea, forgejo, codeberg, link, git-sync
+bugs: https://github.com/paulhibbitts/grav-plugin-git-edit-page-link/issues
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    link_text:
+      type: text
+      label: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.LINK_TEXT_LABEL
+      default: "Edit this Page"
+      placeholder: "Edit this Page"
+
+    link_title:
+      type: text
+      label: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.LINK_TITLE_LABEL
+      help: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.LINK_TITLE_HELP
+      default: ""
+      placeholder: "e.g. Edit this page on GitHub"
+
+    link_position:
+      type: select
+      label: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.LINK_POSITION
+      default: bottom
+      options:
+        top: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.LINK_POSITION_TOP
+        bottom: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.LINK_POSITION_BOTTOM
+        both: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.LINK_POSITION_BOTH
+
+    link_style:
+      type: select
+      label: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.LINK_STYLE
+      default: plain
+      options:
+        button: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.LINK_STYLE_BUTTON
+        plain: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.LINK_STYLE_PLAIN
+
+    dark_mode:
+      type: toggle
+      label: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.DARK_MODE
+      help: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.DARK_MODE_HELP
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    icon_type:
+      type: select
+      label: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.ICON_TYPE
+      default: pencil
+      options:
+        pencil: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.ICON_TYPE_PENCIL
+        doc: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.ICON_TYPE_DOC
+        markdown: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.ICON_TYPE_MARKDOWN
+        branch: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.ICON_TYPE_BRANCH
+        custom: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.ICON_TYPE_CUSTOM
+        none: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.ICON_TYPE_NONE
+
+    icon_custom:
+      type: textarea
+      label: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.ICON_CUSTOM
+      help: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.ICON_CUSTOM_HELP
+      default: ""
+      rows: 4
+
+    page_types:
+      type: array
+      label: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.PAGE_TYPES
+      help: PLUGIN_GIT_EDIT_PAGE_LINK.ADMIN.PAGE_TYPES_HELP
