@@ -7,7 +7,7 @@ namespace Grav\Plugin;
 use Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
 
-class GitEditPageLinkPlugin extends Plugin
+class GitPageLinkPlugin extends Plugin
 {
     public static function getSubscribedEvents(): array
     {
@@ -37,9 +37,9 @@ class GitEditPageLinkPlugin extends Plugin
         }
 
         $config = $this->mergeConfig($page);
-        $this->grav['assets']->addCss('plugin://git-edit-page-link/assets/css/git-edit-page-link.css');
+        $this->grav['assets']->addCss('plugin://git-page-link/assets/css/git-page-link.css');
         if ($config->get('dark_mode', false)) {
-            $this->grav['assets']->addCss('plugin://git-edit-page-link/assets/css/git-edit-page-link-dark.css');
+            $this->grav['assets']->addCss('plugin://git-page-link/assets/css/git-page-link-dark.css');
         }
     }
 
@@ -57,7 +57,7 @@ class GitEditPageLinkPlugin extends Plugin
             return;
         }
 
-        $url = $this->buildEditUrl($page);
+        $url = $this->buildGitUrl($page);
         if (!$url) {
             return;
         }
@@ -112,10 +112,10 @@ class GitEditPageLinkPlugin extends Plugin
     }
 
     /**
-     * Build the remote edit URL from the Git Sync plugin config.
+     * Build the remote Git URL from the Git Sync plugin config.
      * Returns null silently if Git Sync is not configured.
      */
-    private function buildEditUrl($page): ?string
+    private function buildGitUrl($page): ?string
     {
         $gitSyncConfig = $this->grav['config']->get('plugins.git-sync');
 
@@ -174,10 +174,10 @@ class GitEditPageLinkPlugin extends Plugin
         $eLinkText = htmlspecialchars($linkText, ENT_QUOTES | ENT_HTML5, 'UTF-8');
         $titleAttr = $linkTitle !== '' ? ' title="' . htmlspecialchars($linkTitle, ENT_QUOTES | ENT_HTML5, 'UTF-8') . '"' : '';
 
-        return '<div class="gel-wrapper">'
-             . '<a href="' . $eUrl . '" class="gel-link gel-link--' . $linkStyle . '"' . $titleAttr . ' target="_blank" rel="noopener noreferrer">'
+        return '<div class="gpl-wrapper">'
+             . '<a href="' . $eUrl . '" class="gpl-link gpl-link--' . $linkStyle . '"' . $titleAttr . ' target="_blank" rel="noopener noreferrer">'
              . $icon
-             . '<span class="gel-link-text">' . $eLinkText . '</span>'
+             . '<span class="gpl-link-text">' . $eLinkText . '</span>'
              . '</a>'
              . '</div>';
     }
@@ -195,10 +195,10 @@ class GitEditPageLinkPlugin extends Plugin
             }
             // Full SVG supplied — inject the class attribute.
             if (str_starts_with($customSvg, '<svg')) {
-                return preg_replace('/<svg/', '<svg class="gel-icon"', $customSvg, 1);
+                return preg_replace('/<svg/', '<svg class="gpl-icon"', $customSvg, 1);
             }
             // Inner SVG content only — wrap it.
-            return '<svg class="gel-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+            return '<svg class="gpl-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
                  . $customSvg
                  . '</svg>';
         }
@@ -207,9 +207,6 @@ class GitEditPageLinkPlugin extends Plugin
             'pencil'   => '<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/>'
                         . '<path d="M20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>',
             'doc'      => '<path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>',
-            // Simplified square-adapted Markdown mark (M↓) — no border box
-            'markdown' => '<path d="M1 20L1 5L4 5L7.5 11.5L11 5L14 5L14 20L11.5 20L11.5 12.5L7.5 17.5L3.5 12.5L3.5 20Z"/>'
-                        . '<path d="M16 13L19.5 20L23 13L21.5 13L21.5 5L17.5 5L17.5 13Z"/>',
             // Git branch — three commit nodes, vertical main line, curved feature branch
             'branch'   => '<circle cx="6" cy="18.5" r="2.5"/>'
                         . '<circle cx="6" cy="5.5" r="2.5"/>'
@@ -220,7 +217,7 @@ class GitEditPageLinkPlugin extends Plugin
 
         $path = $paths[$iconType] ?? $paths['pencil'];
 
-        return '<svg class="gel-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+        return '<svg class="gpl-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
              . $path
              . '</svg>';
     }

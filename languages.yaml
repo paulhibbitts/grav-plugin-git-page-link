@@ -1,5 +1,5 @@
 en:
-  PLUGIN_GIT_EDIT_PAGE_LINK:
+  PLUGIN_GIT_PAGE_LINK:
     LINK_TEXT: "Edit this Page"
     ADMIN:
       PLUGIN_STATUS: "Plugin Status"
@@ -16,7 +16,6 @@ en:
       ICON_TYPE: "Icon"
       ICON_TYPE_PENCIL: "Pencil (built-in SVG)"
       ICON_TYPE_DOC: "Document (built-in SVG)"
-      ICON_TYPE_MARKDOWN: "Markdown mark (built-in SVG)"
       ICON_TYPE_BRANCH: "Git branch (built-in SVG)"
       ICON_TYPE_CUSTOM: "Custom SVG"
       ICON_TYPE_NONE: "No icon"
@@ -28,7 +27,7 @@ en:
       DARK_MODE_HELP: "Load dark mode CSS for the button style. Enable only if your theme supports dark mode."
 
 fr:
-  PLUGIN_GIT_EDIT_PAGE_LINK:
+  PLUGIN_GIT_PAGE_LINK:
     LINK_TEXT: "Modifier cette page"
     ADMIN:
       PLUGIN_STATUS: "État du plugin"
@@ -45,7 +44,6 @@ fr:
       ICON_TYPE: "Icône"
       ICON_TYPE_PENCIL: "Crayon (SVG intégré)"
       ICON_TYPE_DOC: "Document (SVG intégré)"
-      ICON_TYPE_MARKDOWN: "Marque Markdown (SVG intégré)"
       ICON_TYPE_BRANCH: "Branche Git (SVG intégré)"
       ICON_TYPE_CUSTOM: "SVG personnalisé"
       ICON_TYPE_NONE: "Pas d'icône"

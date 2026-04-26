@@ -1,16 +1,16 @@
-# Git Edit Page Link Plugin
+# Git Page Link Plugin
 
-Adds an "Edit this Page" link to Grav pages, pointing directly to the source Markdown file in the remote Git repository configured by the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync). GitHub, GitLab, Gitea, Forgejo, and Codeberg are supported — the correct edit URL pattern is detected automatically from the remote URL.
+Adds a link to Grav pages that connects visitors directly to the page's source Markdown file in the Git repository configured by the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync). Ideal for open authoring workflows where you want to invite readers to suggest edits or view page source — contributors with repository access land on the edit interface, while everyone else sees the file in the repository viewer. GitHub, GitLab, Gitea, Forgejo, and Codeberg are supported automatically.
 
 ## What It Does
 
-- Renders an "Edit this Page" link at the top, bottom, or both ends of page content
+- Renders a link at the top, bottom, or both ends of page content
+- Link label is fully customisable — use "Edit this Page", "View Source", "Open on GitHub", or any text
 - Styled as a plain text link (default) or a button
-- Displays a built-in pencil, document, Markdown mark, or Git branch SVG icon, a custom SVG, or no icon
-- Opens the remote edit URL in a new tab
+- Displays a built-in pencil, document, or Git branch SVG icon, a custom SVG, or no icon
+- Opens the repository URL in a new tab
 - Silently omits the link if Git Sync is not installed or has no remote configured
-- Skips modular sub-pages automatically
-- Restricts display to specific page templates via the Page Types setting (empty = all pages)
+- Restricts display to specific page templates; leave the Page Types setting empty to show on all pages
 
 ## Requirements
 
@@ -20,19 +20,19 @@ Adds an "Edit this Page" link to Grav pages, pointing directly to the source Mar
 
 ## Installation
 
-**Via the Grav Admin Panel:** Plugins → Add → search for `Git Edit Page Link` → Install.
+**Via the Grav Admin Panel:** Plugins → Add → search for `Git Page Link` → Install.
 
 **Via GPM:**
 
 ```bash
-bin/gpm install git-edit-page-link
+bin/gpm install git-page-link
 ```
 
 **Manual install:**
 
-1. Download the plugin from [GitHub](https://github.com/paulhibbitts/grav-plugin-git-edit-page-link)
-2. Unzip and rename the folder to `git-edit-page-link`
-3. Copy the folder to `user/plugins/git-edit-page-link`
+1. Download the plugin from [GitHub](https://github.com/paulhibbitts/grav-plugin-git-page-link)
+2. Unzip and rename the folder to `git-page-link`
+3. Copy the folder to `user/plugins/git-page-link`
 
 ## Plugin Settings
 
@@ -44,7 +44,7 @@ bin/gpm install git-edit-page-link
 | Link Position | Bottom | Where the link appears: Top, Bottom, or Both |
 | Link Style | Plain text link | Display as a plain text link or a button |
 | Dark Mode Support | Disabled | Load dark mode CSS for the button style; enable only if your theme supports dark mode |
-| Icon | Pencil | Icon shown beside the link label: Pencil, Document, Markdown mark, Git branch, Custom SVG, or None |
+| Icon | Pencil | Icon shown beside the link label: Pencil, Document, Git branch, Custom SVG, or None |
 | Custom SVG | _(empty)_ | Full `<svg>` element or inner path content; used only when Icon is set to Custom SVG |
 | Show on Page Types | _(empty)_ | Restrict the link to specific page templates; leave empty to show on all pages |
 

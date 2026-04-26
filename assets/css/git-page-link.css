@@ -1,15 +1,15 @@
 /* ============================================================
-   Git Edit Page Link — default styles
-   All classes are namespaced with .gel- to avoid collisions
+   Git Page Link — default styles
+   All classes are namespaced with .gpl- to avoid collisions
    ============================================================ */
 
-.gel-wrapper {
+.gpl-wrapper {
   display: block;
   margin: 1rem 0;
 }
 
 /* Shared layout base */
-.gel-link {
+.gpl-link {
   display: inline-flex;
   align-items: center;
   gap: 0.35em;
@@ -19,7 +19,7 @@
 }
 
 /* Button variant — structural approach drawn from Quark/Spectre */
-.gel-link--button {
+.gpl-link--button {
   padding: 0.25rem 0.5rem;
   color: #454d5d;
   background: #fff;
@@ -29,22 +29,22 @@
   transition: background .2s, border-color .2s, box-shadow .2s, color .2s;
 }
 
-.gel-link--button:hover {
+.gpl-link--button:hover {
   background: #f8f9fa;
   border-color: #8f97a4;
   text-decoration: none;
 }
 
-.gel-link--button:focus-visible {
+.gpl-link--button:focus-visible {
   box-shadow: 0 0 0 0.1rem rgba(88, 110, 147, 0.2);
 }
 
 /* Plain variant — inherits all link colour and decoration from the theme */
-.gel-link--plain {
+.gpl-link--plain {
   text-decoration: inherit;
 }
 
-.gel-icon {
+.gpl-icon {
   width: 1em;
   height: 1em;
   flex-shrink: 0;
