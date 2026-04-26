@@ -1,6 +1,6 @@
 name: Git Page Link
 version: 0.9.0
-description: Adds a configurable link to pages, pointing to the source file in the configured Git Sync repository
+description: Adds a configurable link to pages connecting visitors to the Git Sync repository — to edit or view the page source, or to browse the repository
 icon: pencil
 author:
   name: HibbittsDesign.org
@@ -25,6 +25,15 @@ form:
       validate:
         type: bool
 
+    link_target:
+      type: select
+      label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_MODE
+      default: edit
+      options:
+        edit: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_MODE_EDIT
+        view: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_MODE_VIEW
+        repo: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_MODE_REPO
+
     link_text:
       type: text
       label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_TEXT_LABEL
@@ -37,14 +46,6 @@ form:
       help: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_TITLE_HELP
       default: ""
       placeholder: "e.g. Edit this page on GitHub"
-
-    link_target:
-      type: select
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_TARGET
-      default: page
-      options:
-        page: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_TARGET_PAGE
-        repo: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_TARGET_REPO
 
     link_position:
       type: select
@@ -83,6 +84,7 @@ form:
         pencil: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_PENCIL
         doc: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_DOC
         branch: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_BRANCH
+        folder: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_FOLDER
         custom: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_CUSTOM
         none: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_NONE
 

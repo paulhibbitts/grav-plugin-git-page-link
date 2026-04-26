@@ -129,11 +129,12 @@ class GitPageLinkPlugin extends Plugin
         $remote = preg_replace('#(https?://)([^@]+@)#', '$1', $remote);
 
         // 'repo' target — link to the repository root, no file path needed.
-        if ($config->get('link_target', 'page') === 'repo') {
+        if ($config->get('link_target', 'edit') === 'repo') {
             return $remote;
         }
 
-        $branch = (string) ($gitSyncConfig['branch'] ?? 'main');
+        $branch      = (string) ($gitSyncConfig['branch'] ?? 'main');
+        $linkTarget  = $config->get('link_target', 'edit');
 
         // Git Sync always syncs from user/ to the repo root.
         $filePath = $page->filePath();
@@ -147,15 +148,21 @@ class GitPageLinkPlugin extends Plugin
         $repoRelPath = ltrim(str_replace($absLocal, '', $filePath), '/');
 
         if (str_contains($remote, 'github.com')) {
-            return "{$remote}/edit/{$branch}/{$repoRelPath}";
+            return $linkTarget === 'view'
+                ? "{$remote}/blob/{$branch}/{$repoRelPath}"
+                : "{$remote}/edit/{$branch}/{$repoRelPath}";
         }
 
         if (preg_match('/gitlab[.\-]/i', $remote) || str_contains($remote, 'gitlab.com')) {
-            return "{$remote}/-/edit/{$branch}/{$repoRelPath}";
+            return $linkTarget === 'view'
+                ? "{$remote}/-/blob/{$branch}/{$repoRelPath}"
+                : "{$remote}/-/edit/{$branch}/{$repoRelPath}";
         }
 
         // Gitea / Forgejo / Codeberg / self-hosted
-        return "{$remote}/_edit/{$branch}/{$repoRelPath}";
+        return $linkTarget === 'view'
+            ? "{$remote}/src/branch/{$branch}/{$repoRelPath}"
+            : "{$remote}/_edit/{$branch}/{$repoRelPath}";
     }
 
     /**
@@ -218,6 +225,7 @@ class GitPageLinkPlugin extends Plugin
                         . '<circle cx="18.5" cy="9" r="2.5"/>'
                         . '<rect x="4.75" y="8" width="2.5" height="7.5" rx="1.25"/>'
                         . '<path d="M6 12 C6 9 13 9 16 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+            'folder'   => '<path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>',
         ];
 
         $path = $paths[$iconType] ?? $paths['pencil'];
