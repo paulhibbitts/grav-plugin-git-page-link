@@ -4,7 +4,7 @@
 
 <p><em>Connect your Grav pages directly to their Markdown source in a Git repository – for open authoring and OER workflows.</em></p>
 
-[![Latest Release](https://img.shields.io/github/v/release/paulhibbitts/grav-plugin-git-page-link?style=flat-square&label=Release)](https://github.com/paulhibbitts/grav-plugin-git-page-link/releases/latest) [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://github.com/paulhibbitts/grav-plugin-git-page-link/blob/master/LICENSE) [![PHP](https://img.shields.io/badge/PHP-%3E%3D8.0-8892BF?style=flat-square&logo=php&logoColor=white)](https://learn.getgrav.org/17/basics/requirements)
+[![Latest Release](https://img.shields.io/github/v/release/paulhibbitts/grav-plugin-git-page-link?style=flat-square&label=Release)](https://github.com/paulhibbitts/grav-plugin-git-page-link/releases/latest) [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://github.com/paulhibbitts/grav-plugin-git-page-link/blob/master/LICENSE) [![PHP](https://img.shields.io/badge/PHP-%3E%3D8.0-8892BF?style=flat-square&logo=php&logoColor=white)](https://learn.getgrav.org/17/basics/requirements) [![Demo](https://img.shields.io/badge/Demo-Repository-4A90D9?style=flat-square)](https://github.com/paulhibbitts/grav-plugin-git-page-link-demo)
 
 </div>
 
@@ -68,6 +68,8 @@ git-page-link:
 | Link Icon | Pencil | Icon shown beside the link label: Pencil, Document, Git branch, Folder, Custom SVG, or None |
 | Custom SVG | _(empty)_ | Full `<svg>` element or inner path content; used only when Link Icon is set to Custom SVG |
 | Show on Page Types | _(empty)_ | Restrict the link to specific page templates; leave empty to show on all pages |
+
+> **Note:** On GitHub, the edit mode URL redirects unauthenticated visitors to a fork-and-propose-changes flow — ideal for open authoring. On GitLab, Codeberg, Gitea, and Forgejo, edit URLs redirect unauthenticated users to a login page; use **View page** mode for publicly accessible links on those platforms.
 
 ## Credits
 
