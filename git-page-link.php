@@ -177,7 +177,10 @@ class GitPageLinkPlugin extends Plugin
         $linkStyle = $config->get('link_style', 'plain') === 'button' ? 'button' : 'plain';
 
         $linkText  = $config->get('link_text', 'Edit this Page');
-        $linkText  = $lang->translate([$linkText]) ?: $linkText;
+        // Translate the default text via the language file; custom values pass through as-is.
+        if ($linkText === 'Edit this Page') {
+            $linkText = $lang->translate(['PLUGIN_GIT_PAGE_LINK.LINK_TEXT']) ?: $linkText;
+        }
         $linkTitle = trim((string) $config->get('link_title', ''));
 
         $icon = $this->buildIcon($iconType, $config);

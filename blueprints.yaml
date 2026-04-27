@@ -20,7 +20,7 @@ form:
   fields:
     enabled:
       type: toggle
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.PLUGIN_STATUS
+      label: Plugin Status
       highlight: 1
       default: 0
       options:
@@ -31,39 +31,39 @@ form:
 
     link_mode:
       type: select
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_MODE
+      label: Link Mode
       default: edit
       options:
-        edit: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_MODE_EDIT
-        view: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_MODE_VIEW
-        repo: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_MODE_REPO
+        edit: "Edit page in Git repository"
+        view: "View page in Git repository"
+        repo: "View Git repository"
 
     link_text:
       type: text
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_TEXT_LABEL
+      label: Link Label
       default: "Edit this Page"
       placeholder: "Edit this Page"
 
     link_title:
       type: text
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_TITLE_LABEL
-      help: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_TITLE_HELP
+      label: Link Tooltip
+      help: "Tooltip text shown on hover (title attribute). Leave empty for no tooltip."
       default: ""
       placeholder: "e.g. Edit this page on GitHub"
 
     link_position:
       type: select
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_POSITION
+      label: Link Position
       default: bottom
       options:
-        top: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_POSITION_TOP
-        bottom: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_POSITION_BOTTOM
-        both: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_POSITION_BOTH
+        top: "Top of content"
+        bottom: "Bottom of content"
+        both: "Both top and bottom"
 
     link_new_tab:
       type: toggle
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_NEW_TAB
-      help: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_NEW_TAB_HELP
+      label: Open Link in New Tab
+      help: "Open the link in a new browser tab. Disable to use default browser behaviour, or to let the External Links plugin manage this globally."
       highlight: 1
       default: 1
       options:
@@ -74,16 +74,16 @@ form:
 
     link_style:
       type: select
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_STYLE
+      label: Link Style
       default: plain
       options:
-        button: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_STYLE_BUTTON
-        plain: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_STYLE_PLAIN
+        button: "Button"
+        plain: "Plain text link"
 
     dark_mode:
       type: toggle
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.DARK_MODE
-      help: PLUGIN_GIT_PAGE_LINK.ADMIN.DARK_MODE_HELP
+      label: Dark Mode Support
+      help: "Load dark mode CSS for the button style. Enable only if your theme supports dark mode."
       highlight: 1
       default: 0
       options:
@@ -94,24 +94,24 @@ form:
 
     icon_type:
       type: select
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE
+      label: Link Icon
       default: pencil
       options:
-        pencil: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_PENCIL
-        doc: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_DOC
-        branch: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_BRANCH
-        folder: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_FOLDER
-        custom: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_CUSTOM
-        none: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_TYPE_NONE
+        pencil: "Pencil (built-in SVG)"
+        doc: "Document (built-in SVG)"
+        branch: "Git branch (built-in SVG)"
+        folder: "Folder (built-in SVG)"
+        custom: "Custom SVG"
+        none: "No icon"
 
     icon_custom:
       type: textarea
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_CUSTOM
-      help: PLUGIN_GIT_PAGE_LINK.ADMIN.ICON_CUSTOM_HELP
+      label: Custom SVG
+      help: "Paste a full <svg> element or just the inner path content. Only used when Link Icon is set to Custom SVG."
       default: ""
       rows: 4
 
     page_types:
       type: array
-      label: PLUGIN_GIT_PAGE_LINK.ADMIN.PAGE_TYPES
-      help: PLUGIN_GIT_PAGE_LINK.ADMIN.PAGE_TYPES_HELP
+      label: Show on Page Types
+      help: "Leave empty to show on all page types"
