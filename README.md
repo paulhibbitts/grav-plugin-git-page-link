@@ -1,6 +1,6 @@
 # Git Page Link Plugin
 
-Adds a link to Grav pages that connects visitors directly to the configured Git repository — either to the page's source Markdown file or to the repository root. Ideal for open authoring workflows where you want to invite readers to suggest edits or view page source — contributors with repository access land on the edit interface, while everyone else sees the file in the repository viewer. GitHub, GitLab, Gitea, Forgejo, and Codeberg are supported automatically.
+Requires the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync). Adds a link to Grav pages that connects visitors directly to the configured Git repository — either to the page's source Markdown file or to the repository root. Ideal for open authoring workflows where you want to invite readers to suggest edits or view page source — contributors with repository access land on the edit interface, while everyone else sees the file in the repository viewer. GitHub, GitLab, Gitea, Forgejo, and Codeberg are supported automatically.
 
 ## What It Does
 
