@@ -12,14 +12,14 @@ Pairs with the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-
 
 ## What It Does
 
-- Renders a link at the top, bottom, or both ends of page content
 - Link mode is configurable – edit the page file, view the page file, or browse the repository root
+- Renders a link at the top, bottom, or both ends of page content
 - Link label is fully customisable – use "Edit this Page", "View Source", "Open on GitHub", or any text
 - Styled as a plain text link (default) or a button
 - Displays a built-in pencil, document, Git branch, or folder SVG icon, a custom SVG, or no icon
 - Optionally opens in a new tab, or defers to the browser default or the External Links plugin
-- Silently omits the link if Git Sync is not installed or has no remote configured
 - Restricts display to specific page templates; leave the Page Types setting empty to show on all pages
+- Silently omits the link if Git Sync is not installed or has no remote configured
 
 ## Requirements
 
@@ -44,6 +44,16 @@ bin/gpm install git-page-link
 3. Copy the folder to `user/plugins/git-page-link`
 
 ## Plugin Settings
+
+Any setting can be overridden on a per-page basis by adding a `git-page-link` block to the page's frontmatter:
+
+```yaml
+---
+git-page-link:
+  link_text: "View Source"
+  link_mode: view
+---
+```
 
 | Setting | Default | Description |
 |---------|---------|-------------|
