@@ -9,3 +9,5 @@ dark_mode: false         # load dark mode CSS for the button style; only applies
 icon_type: pencil        # pencil | doc | branch | folder | custom | none
 icon_custom: ""          # full SVG or inner path content; used only when icon_type is custom
 page_types: []           # empty = all types; e.g. [default, post]
+git_repository_url: ""  # optional: override the repository URL from Git Sync; e.g. https://github.com/user/repo
+git_branch: ""          # optional: override the branch from Git Sync; e.g. main

@@ -13,7 +13,6 @@ license: MIT
 
 dependencies:
   - { name: grav, version: '>=1.7.0' }
-  - { name: git-sync, version: '>=2.0.0' }
 
 form:
   validation: strict
@@ -115,3 +114,22 @@ form:
       type: array
       label: Show on Page Types
       help: "Leave empty to show on all page types"
+
+    section_advanced:
+      type: section
+      title: Advanced
+      underline: true
+
+    git_repository_url:
+      type: text
+      label: Custom Repository URL
+      help: "Override the repository URL from Git Sync, or set manually if Git Sync is not in use. Leave empty to use Git Sync automatically."
+      default: ""
+      placeholder: "e.g. https://github.com/user/repo"
+
+    git_branch:
+      type: text
+      label: Custom Branch
+      help: "Override the branch from Git Sync, or set manually if Git Sync is not in use. Leave empty to use Git Sync automatically."
+      default: ""
+      placeholder: "e.g. main"

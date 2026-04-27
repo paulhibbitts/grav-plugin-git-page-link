@@ -111,30 +111,36 @@ class GitPageLinkPlugin extends Plugin
     }
 
     /**
-     * Build the remote Git URL from the Git Sync plugin config.
-     * Returns null silently if Git Sync is not configured.
+     * Build the remote Git URL.
+     * Custom repository URL and branch take priority; falls back to Git Sync config.
+     * Returns null silently if neither source provides a repository URL.
      */
     private function buildGitUrl($page, $config): ?string
     {
         $gitSyncConfig = $this->grav['config']->get('plugins.git-sync');
 
-        // Git Sync stores the URL in 'repository'; 'remote' is an array of tracking info.
-        if (!$gitSyncConfig || empty($gitSyncConfig['repository'])) {
+        // Determine the repository URL: custom setting takes priority, then Git Sync.
+        $customUrl = trim((string) $config->get('git_repository_url', ''));
+        if ($customUrl !== '') {
+            $remote = rtrim(preg_replace('/\.git$/', '', $customUrl), '/');
+        } elseif (!empty($gitSyncConfig['repository'])) {
+            $remote = rtrim((string) $gitSyncConfig['repository'], '/');
+            $remote = preg_replace('/\.git$/', '', $remote);
+            // Strip any embedded credentials (e.g. https://token@github.com/...).
+            $remote = preg_replace('#(https?://)([^@]+@)#', '$1', $remote);
+        } else {
             return null;
         }
-
-        $remote = rtrim((string) $gitSyncConfig['repository'], '/');
-        $remote = preg_replace('/\.git$/', '', $remote);
-        // Strip any embedded credentials (e.g. https://token@github.com/...).
-        $remote = preg_replace('#(https?://)([^@]+@)#', '$1', $remote);
 
         // 'repo' mode — link to the repository root, no file path needed.
         if ($config->get('link_mode', 'edit') === 'repo') {
             return $remote;
         }
 
-        $branch    = (string) ($gitSyncConfig['branch'] ?? 'main');
-        $linkMode  = $config->get('link_mode', 'edit');
+        // Determine the branch: custom setting takes priority, then Git Sync, then default.
+        $customBranch = trim((string) $config->get('git_branch', ''));
+        $branch       = $customBranch !== '' ? $customBranch : (string) (($gitSyncConfig ?? [])['branch'] ?? 'main');
+        $linkMode     = $config->get('link_mode', 'edit');
 
         // Git Sync always syncs from user/ to the repo root.
         $filePath = $page->filePath();

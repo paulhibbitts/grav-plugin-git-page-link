@@ -19,13 +19,14 @@ For open authoring and OER workflows – pairs with the [Git Sync plugin](https:
 - Displays a built-in pencil, document, Git branch, or folder SVG icon, a custom SVG, or no icon
 - Optionally opens in a new tab, or defers to the browser default or the External Links plugin
 - Restricts display to specific page templates; leave the Page Types setting empty to show on all pages
-- Silently omits the link if Git Sync is not installed or has no remote configured
+- Repository URL is auto-detected from Git Sync, with an optional override for non-standard setups
+- Silently omits the link if no repository URL is available from Git Sync or the Advanced settings
 
 ## Requirements
 
 - Grav 1.7+
 - PHP 8.0+
-- [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync) installed and configured with a remote repository
+- [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync) installed and configured with a remote repository, or the repository URL and branch set manually in the Advanced settings
 
 ## Installation
 
@@ -68,6 +69,8 @@ git-page-link:
 | Link Icon | Pencil | Icon shown beside the link label: Pencil, Document, Git branch, Folder, Custom SVG, or None |
 | Custom SVG | _(empty)_ | Full `<svg>` element or inner path content; used only when Link Icon is set to Custom SVG |
 | Show on Page Types | _(empty)_ | Restrict the link to specific page templates; leave empty to show on all pages |
+| Custom Repository URL | _(empty)_ | Override the repository URL from Git Sync, or set manually if Git Sync is not in use; leave empty to use Git Sync automatically |
+| Custom Branch | _(empty)_ | Override the branch from Git Sync, or set manually if Git Sync is not in use; leave empty to use Git Sync automatically |
 
 > **Note:** On GitHub, the edit mode URL redirects unauthenticated visitors to a fork-and-propose-changes flow — ideal for open authoring. On GitLab, Codeberg, Gitea, and Forgejo, edit URLs redirect unauthenticated users to a login page; use **View page** mode for publicly accessible links on those platforms.
 
