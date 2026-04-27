@@ -29,7 +29,7 @@ form:
       validate:
         type: bool
 
-    link_target:
+    link_mode:
       type: select
       label: PLUGIN_GIT_PAGE_LINK.ADMIN.LINK_MODE
       default: edit

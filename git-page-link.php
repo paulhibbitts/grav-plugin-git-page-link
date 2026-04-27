@@ -128,13 +128,13 @@ class GitPageLinkPlugin extends Plugin
         // Strip any embedded credentials (e.g. https://token@github.com/...).
         $remote = preg_replace('#(https?://)([^@]+@)#', '$1', $remote);
 
-        // 'repo' target — link to the repository root, no file path needed.
-        if ($config->get('link_target', 'edit') === 'repo') {
+        // 'repo' mode — link to the repository root, no file path needed.
+        if ($config->get('link_mode', 'edit') === 'repo') {
             return $remote;
         }
 
-        $branch      = (string) ($gitSyncConfig['branch'] ?? 'main');
-        $linkTarget  = $config->get('link_target', 'edit');
+        $branch    = (string) ($gitSyncConfig['branch'] ?? 'main');
+        $linkMode  = $config->get('link_mode', 'edit');
 
         // Git Sync always syncs from user/ to the repo root.
         $filePath = $page->filePath();
@@ -148,19 +148,19 @@ class GitPageLinkPlugin extends Plugin
         $repoRelPath = ltrim(str_replace($absLocal, '', $filePath), '/');
 
         if (str_contains($remote, 'github.com')) {
-            return $linkTarget === 'view'
+            return $linkMode === 'view'
                 ? "{$remote}/blob/{$branch}/{$repoRelPath}"
                 : "{$remote}/edit/{$branch}/{$repoRelPath}";
         }
 
         if (preg_match('/gitlab[.\-]/i', $remote) || str_contains($remote, 'gitlab.com')) {
-            return $linkTarget === 'view'
+            return $linkMode === 'view'
                 ? "{$remote}/-/blob/{$branch}/{$repoRelPath}"
                 : "{$remote}/-/edit/{$branch}/{$repoRelPath}";
         }
 
         // Gitea / Forgejo / Codeberg / self-hosted
-        return $linkTarget === 'view'
+        return $linkMode === 'view'
             ? "{$remote}/src/branch/{$branch}/{$repoRelPath}"
             : "{$remote}/_edit/{$branch}/{$repoRelPath}";
     }
