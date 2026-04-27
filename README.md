@@ -8,7 +8,7 @@
 
 </div>
 
-Pairs with the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync) to add a link to Grav pages that connects visitors directly to the content Git repository – either to the page's source Markdown file or to the repository root. Ideal for open authoring and OER workflows where you want to invite readers to suggest edits, view page source, or access the raw Markdown files for reuse and adaptation – contributors with repository access land on the edit interface, while everyone else sees the file in the repository viewer. GitHub, Codeberg, and other Git-compatible hosting services are supported.
+For open authoring and OER workflows – pairs with the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync) to add a link to Grav pages that connects visitors directly to the content Git repository, either to the page's source Markdown file or to the repository root. Invite readers to suggest edits, view page source, or access the raw Markdown files for reuse and adaptation – contributors with repository access land on the edit interface, while everyone else sees the file in the repository viewer. GitHub, Codeberg, and other Git-compatible hosting services are supported.
 
 ## What It Does
 
