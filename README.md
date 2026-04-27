@@ -1,12 +1,20 @@
-# Git Page Link Plugin
+<div align="center">
 
-Requires the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync). Adds a link to Grav pages that connects visitors directly to the configured Git repository — either to the page's source Markdown file or to the repository root. Ideal for open authoring workflows where you want to invite readers to suggest edits or view page source — contributors with repository access land on the edit interface, while everyone else sees the file in the repository viewer. GitHub, GitLab, Gitea, Forgejo, and Codeberg are supported automatically.
+# 🔗 Git Page Link Plugin
+
+<p><em>Connect your Grav pages directly to their Markdown source in a Git repository – for open authoring and OER workflows.</em></p>
+
+[![Latest Release](https://img.shields.io/github/v/release/paulhibbitts/grav-plugin-git-page-link?style=flat-square&label=Release)](https://github.com/paulhibbitts/grav-plugin-git-page-link/releases/latest) [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://github.com/paulhibbitts/grav-plugin-git-page-link/blob/master/LICENSE) [![PHP](https://img.shields.io/badge/PHP-%3E%3D8.0-8892BF?style=flat-square&logo=php&logoColor=white)](https://learn.getgrav.org/17/basics/requirements)
+
+</div>
+
+Pairs with the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync) to add a link to Grav pages that connects visitors directly to the content Git repository – either to the page's source Markdown file or to the repository root. Ideal for open authoring and OER workflows where you want to invite readers to suggest edits, view page source, or access the raw Markdown files for reuse and adaptation – contributors with repository access land on the edit interface, while everyone else sees the file in the repository viewer. GitHub, Codeberg, and other Git-compatible hosting services are supported.
 
 ## What It Does
 
 - Renders a link at the top, bottom, or both ends of page content
-- Link mode is configurable — edit the page file, view the page file, or browse the repository root
-- Link label is fully customisable — use "Edit this Page", "View Source", "Open on GitHub", or any text
+- Link mode is configurable – edit the page file, view the page file, or browse the repository root
+- Link label is fully customisable – use "Edit this Page", "View Source", "Open on GitHub", or any text
 - Styled as a plain text link (default) or a button
 - Displays a built-in pencil, document, Git branch, or folder SVG icon, a custom SVG, or no icon
 - Optionally opens in a new tab, or defers to the browser default or the External Links plugin
@@ -56,3 +64,14 @@ bin/gpm install git-page-link
 Developed by [HibbittsDesign.org](https://hibbittsdesign.org) with the assistance of [Claude Code](https://claude.ai/claude-code).
 
 Special thanks to [tucho235](https://github.com/tucho235) for the [Copy as Markdown Button](https://github.com/tucho235/grav-plugin-copy-as-markdown-button) plugin, which served as an example of injecting content at the top or bottom of Grav pages.
+
+## Support
+
+- Follow [@hibbittsdesign@mastodon.social](https://mastodon.social/@hibbittsdesign) on Mastodon for updates
+- Join the [Grav Discord](https://chat.getgrav.org) for community support
+- Add a ⭐️ [star on GitHub](https://github.com/paulhibbitts/grav-plugin-git-page-link) to support the project
+- For bugs or feature requests, [open an issue](https://github.com/paulhibbitts/grav-plugin-git-page-link/issues) on GitHub
+
+## License
+
+MIT – Hibbitts Design
